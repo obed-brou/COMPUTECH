@@ -1,0 +1,31 @@
+﻿@page
+@model COMPUTECH.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">Our Products</h1>
+    <div class="text-right mb-3">
+        <a class="btn btn-success" asp-page="Create">Add New Product</a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model.Product)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p class="card-text text-primary font-weight-bold">@item.Price.ToString("C")</p>
+                        <a class="btn btn-primary btn-block" asp-page="./Details" asp-route-id="@item.ProductId">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

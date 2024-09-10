@@ -1,0 +1,33 @@
+﻿@page
+@model COMPUTECH.Pages.Blog.IndexModel
+@{
+    ViewData["Title"] = "Blog Posts";
+    Layout = "_Layout";
+}
+
+<h2>Blog Posts</h2>
+
+<a class="btn btn-success mb-3" asp-page="Create">Create New Post</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date Posted</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model.BlogPosts)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.DatePosted.ToString("g")</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="Edit" asp-route-id="@post.BlogPostId">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-page="Delete" asp-route-id="@post.BlogPostId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

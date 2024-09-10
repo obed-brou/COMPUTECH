@@ -1,0 +1,15 @@
+﻿@page
+@model COMPUTECH.Pages.Account.LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+    Layout = "_Layout";
+}
+
+<h2>Logout</h2>
+
+<p>Are you sure you want to log out?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Yes, log me out</button>
+    <a asp-page="/Index" class="btn btn-secondary">Cancel</a>
+</form>
